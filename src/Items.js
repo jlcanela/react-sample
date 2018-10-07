@@ -39,7 +39,7 @@ const styles = theme => ({
 
 function Items(props) {
   const { classes, items, select, t } = props;
-
+  
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -75,6 +75,7 @@ Items.propTypes = {
 
 const mapStateToProps = state => ({
   items: state.items,
+  languages: state.languages,
 })
 
 

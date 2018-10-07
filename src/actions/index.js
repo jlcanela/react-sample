@@ -1,3 +1,5 @@
+import i18n from "i18next";
+
 export const initItems = () => ({
     type: 'INIT_ITEMS',
   })
@@ -7,7 +9,11 @@ export const selectItem = (id) => ({
   id,
 })
 
-export const selectLanguage = (id) => ({
-  type: 'SET_LANGUAGE',
-  id,
-})
+export function selectLanguage(lang) {
+  return dispatch => {
+    i18n.changeLanguage(lang, () => dispatch({
+      type: 'SET_LANGUAGE',
+      id: lang,
+    }));
+  }
+}

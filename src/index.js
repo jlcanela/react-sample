@@ -7,7 +7,7 @@ import { applyMiddleware, createStore } from 'redux'
 import rootReducer from './reducers'
 import * as serviceWorker from './serviceWorker';
 import logger from 'redux-logger';
-
+import thunkMiddleware from 'redux-thunk'
 import i18n from "i18next";
 import { reactI18nextModule } from "react-i18next";
 
@@ -17,7 +17,7 @@ i18n
     resources: {
       en: {
         translation: {
-          "Item selection" : "Item selection EN",
+          "Item selection" : "Item selection",
           "Name": "Name",
           "Date": "Date",
           "Action": "Action",
@@ -25,7 +25,7 @@ i18n
       },
       fr: {
         translation: {
-          'Item selection' : 'Item selection FR',
+          'Item selection' : "Sélection d'un élément",
           'Name': 'Nom',
           "Date": 'Date',
           'Action': 'Action',
@@ -42,7 +42,7 @@ i18n
 
 const store = createStore(
     rootReducer,
-    applyMiddleware(logger)
+    applyMiddleware(thunkMiddleware, logger)
 );
 
 ReactDOM.render(
