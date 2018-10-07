@@ -19,6 +19,11 @@ const styles = {
   },
 };
 
+const langToCountry = {
+  en: 'GB',
+  fr: 'FR',
+}
+
 function SimpleAppBar(props) {
   const { classes, languages, select, t } = props;
 
@@ -32,7 +37,7 @@ function SimpleAppBar(props) {
          <div>
          {  languages.all.map( (lang) => 
               <IconButton key={lang}  variant="fab" disabled={lang === languages.current} onClick={() => select(lang)}>
-              <Flag country={lang} />
+              <Flag country={langToCountry[lang]} />
               </IconButton>
             )
          }

@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import SettingsIcon from '@material-ui/icons/Settings';
 import moment from 'moment';
+import { withI18n } from "react-i18next";
 import { connect } from 'react-redux'
 import { selectItem } from './actions';
 
@@ -37,16 +38,16 @@ const styles = theme => ({
 });
 
 function Items(props) {
-  const { classes, items, select } = props;
+  const { classes, items, select, t } = props;
 
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell className={classes.head}>Name</TableCell>
-            <TableCell className={classes.head}>Date</TableCell>
-            <TableCell className={classes.head}>Action</TableCell>
+            <TableCell className={classes.head}>{t('Name')}</TableCell>
+            <TableCell className={classes.head}>{t('Date')}</TableCell>
+            <TableCell className={classes.head}>{t('Action')}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -85,4 +86,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(Items))
+)(withI18n()(withStyles(styles)(Items)));

@@ -17,18 +17,22 @@ i18n
     resources: {
       en: {
         translation: {
-            "Item selection" : "Item selection EN",
-          "Welcome to React": "Welcome to React and react-i18next"
+          "Item selection" : "Item selection EN",
+          "Name": "Name",
+          "Date": "Date",
+          "Action": "Action",
         }
       },
       fr: {
         translation: {
-            "Welcome to React": "Welcome to React and react-i18next FR",
-            "Item selection" : "Item selection FR"
+          'Item selection' : 'Item selection FR',
+          'Name': 'Nom',
+          "Date": 'Date',
+          'Action': 'Action',
         }
       }
     },
-    lng: "fr",
+    lng: "en",
     fallbackLng: "en",
     
     interpolation: {
