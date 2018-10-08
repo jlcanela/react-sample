@@ -10,35 +10,22 @@ import logger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk'
 import i18n from "i18next";
 import { reactI18nextModule } from "react-i18next";
+import XHR from 'i18next-xhr-backend';
+
+const backend = {
+  interpolation: {
+    escapeValue: false
+  },
+  lng: "en",
+  fallbackLng: "en",
+  loadPath: '/locales/en/translation.json',
+ // loadPath: 'http://localhost:3000//locales/{{lng}}/{{ns}}.json',
+}
 
 i18n
+  .use(XHR)
   .use(reactI18nextModule) // passes i18n down to react-i18next
-  .init({
-    resources: {
-      en: {
-        translation: {
-          "Item selection" : "Item selection",
-          "Name": "Name",
-          "Date": "Date",
-          "Action": "Action",
-        }
-      },
-      fr: {
-        translation: {
-          'Item selection' : "Sélection d'un élément",
-          'Name': 'Nom',
-          "Date": 'Date',
-          'Action': 'Action',
-        }
-      }
-    },
-    lng: "en",
-    fallbackLng: "en",
-    
-    interpolation: {
-      escapeValue: false
-    }
-  });
+  .init();
 
 const store = createStore(
     rootReducer,
