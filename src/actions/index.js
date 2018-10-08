@@ -11,9 +11,10 @@ export const selectItem = (id) => ({
 
 export function selectLanguage(lang) {
   return dispatch => {
-    i18n.changeLanguage(lang, () => dispatch({
-      type: 'SET_LANGUAGE',
-      id: lang,
+    i18n.changeLanguage(lang, () => 
+      dispatch({
+        type: 'SET_LANGUAGE',
+        id: lang,
     }));
   }
 }

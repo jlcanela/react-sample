@@ -1,5 +1,5 @@
 
-const supportedLanguages = ['en', 'fr'];
+const supportedLanguages = ['en', 'fr', 'zh'];
 const defaultLanguages =  { current: supportedLanguages[0], all: supportedLanguages};
 
 const languages = (state = defaultLanguages, action) => {

@@ -1,8 +1,6 @@
 {
-    "translation": {
-      "Item selection" : "Sélection d'un élément FR",
-      "Name": "Nom",
-      "Date": "Date",
-      "Action": "Action"
-    }
+  "Item selection" : "Sélection d'un élément",
+  "Name": "Nom",
+  "Date": "Date",
+  "Action": "Action"
 }

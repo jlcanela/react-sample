@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import SettingsIcon from '@material-ui/icons/Settings';
 import moment from 'moment';
+import 'moment/locale/fr';
+import 'moment/locale/zh-cn';
 import { withI18n } from "react-i18next";
 import { connect } from 'react-redux'
 import { selectItem } from './actions';
@@ -38,8 +40,8 @@ const styles = theme => ({
 });
 
 function Items(props) {
-  const { classes, items, select, t } = props;
-  
+  const { classes, items, select, t, lang } = props;
+
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -51,12 +53,14 @@ function Items(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-            {items.map(item => {
+            {
+              
+              items.map(item => {
                 return (
                 <TableRow key={item.id} className={item.selected ? classes.selected : classes.row}>
                     <TableCell component="th" scope="row">{item.name}
                     </TableCell>
-                    <TableCell>{moment(item.date).format('L')}</TableCell>
+                    <TableCell>{moment(item.date).locale(lang).format('LL')}</TableCell>
                     <TableCell>
                       { !item.selected && <SettingsIcon color="primary" onClick={() => select(item.id)}/>}
                     </TableCell>
@@ -76,6 +80,7 @@ Items.propTypes = {
 const mapStateToProps = state => ({
   items: state.items,
   languages: state.languages,
+  lang: state.languages.current,
 })
 
 

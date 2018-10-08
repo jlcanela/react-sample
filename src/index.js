@@ -13,19 +13,19 @@ import { reactI18nextModule } from "react-i18next";
 import XHR from 'i18next-xhr-backend';
 
 const backend = {
+  //debug: true,
   interpolation: {
     escapeValue: false
   },
   lng: "en",
   fallbackLng: "en",
-  loadPath: '/locales/en/translation.json',
- // loadPath: 'http://localhost:3000//locales/{{lng}}/{{ns}}.json',
+  loadPath: '/locales/{{lng}}/{{ns}}.json',
 }
 
 i18n
   .use(XHR)
   .use(reactI18nextModule) // passes i18n down to react-i18next
-  .init();
+  .init(backend);
 
 const store = createStore(
     rootReducer,

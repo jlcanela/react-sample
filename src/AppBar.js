@@ -22,6 +22,7 @@ const styles = {
 const langToCountry = {
   en: 'GB',
   fr: 'FR',
+  zh: 'CN',
 }
 
 function SimpleAppBar(props) {
